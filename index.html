@@ -9,9 +9,8 @@
   <meta property="og:description" content="AI solutions studio building the next generation of agentic business tools.">
   <meta property="og:url" content="https://helloaurora.ai">
   <meta property="og:type" content="website">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Self-hosted fonts — no third-party requests (GDPR/DSGVO compliant) -->
+  <link rel="stylesheet" href="fonts/fonts.css">
   <style>
     :root {
       --aurora-gradient: linear-gradient(135deg, #38e8c8, #4cc9f0, #7b8ff0, #b388eb, #e87fa5);
@@ -172,7 +171,7 @@
         <button type="submit">Get Early Access</button>
       </form>
       <div id="hero-success" class="success-msg">You're on the list. We'll be in touch soon.</div>
-      <p class="hero-sub">Free early access. No spam, ever.</p>
+      <p class="hero-sub">Free early access. No spam, ever. By signing up you agree to our <a href="/privacy.html" style="color: var(--accent-primary); text-decoration: underline;">Privacy Policy</a>.</p>
     </div>
   </section>
 
@@ -311,6 +310,7 @@
           <button type="submit">Join Waitlist</button>
         </form>
         <div id="bottom-success" class="success-msg">You're on the list. We'll be in touch soon.</div>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem; opacity: 0.7;">By signing up you agree to our <a href="/privacy.html" style="color: var(--accent-primary); text-decoration: underline;">Privacy Policy</a>.</p>
       </div>
     </div>
   </section>
