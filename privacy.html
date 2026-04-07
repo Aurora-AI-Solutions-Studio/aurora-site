@@ -73,7 +73,7 @@
 
   <div class="legal-container">
     <h1>Privacy Policy</h1>
-    <p class="subtitle">Datenschutzerklärung — Last updated: March 31, 2026</p>
+    <p class="subtitle">Datenschutzerklärung — Last updated: April 7, 2026</p>
 
     <h2>1. Controller / Verantwortlicher</h2>
     <div class="info-card">
@@ -127,19 +127,31 @@
         <tr>
           <td><strong>Supabase Inc.</strong></td>
           <td>Database, authentication, row-level security</td>
+          <td><strong>EU (AWS eu-central-1, Frankfurt)</strong></td>
+          <td><span class="product-tag tag-veritasx">VeritasX</span> <span class="product-tag tag-reforge">ReForge</span> <span class="product-tag tag-clientpulse">ClientPulse</span> Aurora-Core</td>
+        </tr>
+        <tr>
+          <td><strong>Supabase Inc.</strong></td>
+          <td>Database, authentication, row-level security</td>
           <td>US (AWS us-east-2)</td>
-          <td><span class="product-tag tag-all">All Products</span></td>
+          <td><span class="product-tag tag-agentforge">AgentForge</span></td>
         </tr>
         <tr>
           <td><strong>Vercel Inc.</strong></td>
           <td>Web hosting, edge functions, CDN</td>
-          <td>US (Global CDN)</td>
+          <td><strong>Compute: Frankfurt (fra1)</strong> for VeritasX, ReForge, ClientPulse, Aurora-Core. <strong>Compute: Washington DC (iad1)</strong> for AgentForge. CDN edge: globally distributed via Vercel's anycast network.</td>
           <td><span class="product-tag tag-all">All Products</span></td>
         </tr>
         <tr>
           <td><strong>Cloudflare Inc.</strong></td>
           <td>DNS, DDoS protection, email routing</td>
           <td>US (Global)</td>
+          <td><span class="product-tag tag-all">All Products</span></td>
+        </tr>
+        <tr>
+          <td><strong>Resend Inc.</strong></td>
+          <td>Transactional email delivery (signup confirmations, password resets, account notifications). Sub-processor: Amazon Web Services EMEA SARL (EU operator of SES).</td>
+          <td><strong>EU (AWS eu-west-1, Ireland)</strong></td>
           <td><span class="product-tag tag-all">All Products</span></td>
         </tr>
         <tr>
@@ -198,15 +210,15 @@
     <h2>5. International Data Transfers</h2>
     <p>The majority of our data processors are based in the United States. We ensure lawful data transfers through the following mechanisms:</p>
     <ul>
-      <li><strong>EU-US Data Privacy Framework (DPF):</strong> For processors certified under the DPF (Stripe, Cloudflare, Vercel, GitHub, OpenAI).</li>
-      <li><strong>Standard Contractual Clauses (SCCs):</strong> For processors not certified under DPF, we rely on the European Commission's Standard Contractual Clauses pursuant to Art. 46(2)(c) GDPR.</li>
-      <li><strong>Supplementary measures:</strong> We implement additional technical safeguards including encryption in transit (TLS 1.3), encryption at rest, and row-level security policies in our databases.</li>
+      <li><strong>EU-US Data Privacy Framework (DPF):</strong> For processors certified under the DPF (Stripe, Cloudflare, Vercel, GitHub, OpenAI, Anthropic, Resend).</li>
+      <li><strong>Standard Contractual Clauses (SCCs):</strong> For non-DPF US-incorporated processors and as a backup safeguard, we rely on the European Commission's Standard Contractual Clauses pursuant to Art. 46(2)(c) GDPR.</li>
+      <li><strong>Supplementary measures:</strong> Encryption in transit (TLS 1.3), encryption at rest (AES-256), row-level security policies enforced at the database layer, and data residency in EU regions where supported (Supabase eu-central-1 for all products except AgentForge; Resend eu-west-1; Vercel fra1 for all products except AgentForge).</li>
     </ul>
 
     <h2>6. How AI Processes Your Data</h2>
     <p>When you use our AI-powered features, the text you submit is sent to AI providers (Anthropic Claude, xAI Grok, OpenAI) via their APIs. Important details:</p>
     <ul>
-      <li>Anthropic, xAI, and OpenAI do <strong>not</strong> use data submitted via their APIs to train their models (per their current API data usage policies).</li>
+      <li>Anthropic, xAI, and OpenAI do <strong>not</strong> use data submitted via their APIs to train their models (per their API data usage policies as of April 2026). We monitor changes to these policies and will update users via email if a provider changes its training opt-out posture.</li>
       <li>Your submitted content is processed in real time and not permanently stored by the AI provider.</li>
       <li>AI-generated results (rewrites, scores, analysis) are stored in our Supabase database and linked to your account.</li>
       <li>Voice Fingerprint profiles are derived solely from your stored analyses and do not include any biometric data.</li>
