@@ -731,7 +731,10 @@
     async function submitForm(e, successId) {
       e.preventDefault();
       const form = e.target;
+      const btn = form.querySelector('button');
       const email = form.querySelector('input[type="email"]').value;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
       try {
         const res = await fetch(SUPABASE_URL + '/rest/v1/waitlist', {
           method: 'POST',
@@ -746,10 +749,15 @@
         if (res.ok || res.status === 201 || res.status === 409) {
           form.style.display = 'none';
           document.getElementById(successId).classList.add('show');
+        } else {
+          btn.textContent = 'Try again';
+          btn.disabled = false;
+          console.error('Waitlist signup failed:', res.status, res.statusText);
         }
       } catch (err) {
-        form.style.display = 'none';
-        document.getElementById(successId).classList.add('show');
+        btn.textContent = 'Try again';
+        btn.disabled = false;
+        console.error('Waitlist signup error:', err);
       }
     }
 
