@@ -141,6 +141,13 @@
     .proof-inner { max-width: 800px; margin: 0 auto; text-align: center; }
     .proof-quote { font-family: var(--font-display); font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 400; font-style: italic; line-height: 1.6; margin-bottom: 1.5rem; color: var(--text-primary); opacity: 0.9; }
     .proof-attr { font-size: 0.85rem; color: var(--text-muted); font-weight: 300; }
+    .trust-logos { display: flex; justify-content: center; gap: 2.5rem; margin: 2rem 0; flex-wrap: wrap; }
+    .trust-item { text-align: center; }
+    .trust-name { display: block; font-weight: 600; font-size: 0.95rem; color: var(--text-primary); margin-bottom: 0.15rem; }
+    .trust-role { display: block; font-size: 0.75rem; color: var(--text-muted); font-weight: 300; }
+    .trust-signals { display: flex; justify-content: center; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(76, 201, 240, 0.08); }
+    .trust-signal { font-size: 0.8rem; color: var(--accent-tertiary); font-weight: 500; }
+    .trust-divider { width: 4px; height: 4px; border-radius: 50%; background: var(--text-muted); opacity: 0.3; }
 
     /* ── Pricing ── */
     #pricing { background: var(--bg-polar); }
@@ -381,7 +388,8 @@
             <li>Recursive Learning</li>
           </ul>
           <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <div class="product-status" style="color: var(--clientpulse-accent);"><span class="status-dot" style="background: var(--clientpulse-accent);"></span> Launching July 2026</div>
+            <div class="product-status" style="color: var(--clientpulse-accent);"><span class="status-dot" style="background: var(--clientpulse-accent);"></span> Launching June 2026</div>
+            <a href="https://clientpulse.helloaurora.ai" class="product-link" style="color: var(--clientpulse-accent);">Learn More &#x2192;</a>
           </div>
         </div>
 
@@ -410,11 +418,42 @@
     </div>
   </section>
 
-  <!-- SOCIAL PROOF / POSITIONING -->
+  <!-- TRUST BAR -->
   <div class="social-proof">
     <div class="proof-inner reveal">
-      <p class="proof-quote">"We're not selling AI. We're selling a system that uses AI. Every AI product that's just a wrapper will die as models get cheaper. Aurora survives because the products have real data moats."</p>
-      <p class="proof-attr">Built by a solo founder in Germany. No VC. No 50-person team. Just focused product work and an obsessive commitment to solving problems that cost agencies real money.</p>
+      <p class="section-label" style="margin-bottom: 0.5rem;">Built on enterprise infrastructure</p>
+      <p class="proof-quote" style="font-style: normal; font-family: var(--font-body); font-size: 1rem; font-weight: 300;">"We're not selling AI. We're selling a system that uses AI." Every Aurora product runs on production-grade infrastructure trusted by thousands of companies worldwide.</p>
+      <div class="trust-logos">
+        <div class="trust-item">
+          <span class="trust-name">Anthropic Claude</span>
+          <span class="trust-role">AI Intelligence</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-name">Stripe</span>
+          <span class="trust-role">Payments & Billing</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-name">Supabase</span>
+          <span class="trust-role">Database (EU Frankfurt)</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-name">Vercel</span>
+          <span class="trust-role">Edge Deployment</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-name">Cloudflare</span>
+          <span class="trust-role">Security & DNS</span>
+        </div>
+      </div>
+      <div class="trust-signals">
+        <span class="trust-signal">256-bit encryption</span>
+        <span class="trust-divider"></span>
+        <span class="trust-signal">EU data residency (Frankfurt)</span>
+        <span class="trust-divider"></span>
+        <span class="trust-signal">Your data never trains our AI</span>
+        <span class="trust-divider"></span>
+        <span class="trust-signal">GDPR compliant</span>
+      </div>
     </div>
   </div>
 
@@ -500,7 +539,7 @@
         <div class="pricing-product-header">
           <span class="pp-icon">&#x1F4CA;</span>
           <h3>ClientPulse</h3>
-          <span class="pp-tag" style="background: rgba(56,232,200,0.12); color: var(--clientpulse-accent);">Launching July</span>
+          <span class="pp-tag" style="background: rgba(56,232,200,0.12); color: var(--clientpulse-accent);">Launching June</span>
         </div>
         <div class="pricing-grid">
           <div class="price-card">
@@ -588,39 +627,36 @@
     </div>
   </section>
 
-  <!-- STORY -->
+  <!-- WHY AURORA -->
   <section id="story">
     <div class="section-inner">
       <div class="reveal">
-        <p class="section-label">Our Story</p>
-        <h2 class="section-title">Why these two products. Why agencies. Why now.</h2>
+        <p class="section-label">Why Aurora</p>
+        <h2 class="section-title">AI tools that get smarter the longer you use them.</h2>
+        <p class="section-desc">Most AI tools are wrappers around ChatGPT. Aurora is different. These are systems that connect to your data, run persistently, and compound intelligence over time. The AI is the engine — the product is the car.</p>
       </div>
 
       <div class="story-layout">
         <div class="story-content reveal">
-          <p>Here's the honest framework: if your product's value is "put a prompt into ChatGPT for you and show the output in a nicer UI," you're dead. Every AI product that's just a wrapper will die as models get cheaper and more accessible. That's what killed our first product.</p>
+          <p><strong>ChatGPT can't do what Aurora does.</strong> It can't connect to your Stripe account and monitor payment patterns every week. It can't maintain a voice profile trained on 6 months of your client's approved content. It can't send you a Monday morning email with "3 healthy clients, 1 at risk, here's what to do."</p>
 
-          <p>But there are two things raw AI models fundamentally cannot do, and this is where your surviving products have real ground to stand on:</p>
+          <p>Aurora products aren't prompts in a nicer UI — they're <strong>persistent intelligence systems</strong> that connect to your agency's real data, learn your specific patterns, and automate workflows that would take your team hours every week.</p>
 
-          <p><strong>Models can't connect to your data and run persistently.</strong> ChatGPT can't replicate that because ChatGPT doesn't have access to your agency's data, doesn't run on a schedule, and doesn't maintain state across weeks. ClientPulse isn't an AI wrapper — it's a data aggregation product with AI intelligence on top. The integrations, the persistent scoring, the weekly automated brief — that's the product.</p>
-
-          <p><strong>Models can't run a multi-step pipeline end-to-end.</strong> With ReForge, the value isn't "AI writes a LinkedIn post." The value is: upload one podcast, content intelligence extracts 15 segments, generates 50+ outputs in your voice across 16 platforms — you review in Kanban, approve, publish directly to X/LinkedIn/WordPress, track performance, learn what works. That's a workflow, not a prompt.</p>
-
-          <p class="story-quote">"We're not selling AI. We're selling a system that uses AI. The AI is the engine. The product is the car."</p>
+          <p><strong>The result:</strong> the longer you use Aurora, the more valuable it becomes. ReForge's Voice Engine at month 6 produces drafts your clients can't tell from human-written. ClientPulse's Health Score at month 6 catches risk signals you didn't even know to look for.</p>
         </div>
 
         <div class="story-principles reveal">
           <div class="sp-item">
-            <h4>Every product must have a data moat.</h4>
-            <p>ReForge's Voice Engine compounds brand voice data with every piece you approve. ClientPulse's Health Score trains on your specific client patterns. Six months in, no competitor can replicate what you've built — because the intelligence is uniquely yours.</p>
+            <h4>Your data builds your moat.</h4>
+            <p>Every approved draft, every client interaction, every Monday Brief trains the system on your agency's unique patterns. After 6 months, your Aurora instance is irreplaceable — not because we lock you in, but because the intelligence is uniquely yours.</p>
           </div>
           <div class="sp-item">
-            <h4>One connector to first value.</h4>
-            <p>ReForge needs one transcript. ClientPulse needs one Stripe OAuth click. No 4-step onboarding. No "connect your CRM + calendar + Gmail + Zoom minimum." If the intelligence is good, this alone drives retention.</p>
+            <h4>Value from minute one.</h4>
+            <p>ReForge needs one transcript. ClientPulse needs one Stripe click. No 4-week onboarding. No "connect 5 tools before you see anything." You get actionable output in your first session.</p>
           </div>
           <div class="sp-item">
-            <h4>Products must compound over time.</h4>
-            <p>Recursive learning means every interaction — every approved draft, every client save, every Monday Brief — feeds back into the system. The voice engine is noticeably better at month 3 than day 1. That's the retention hook.</p>
+            <h4>Recursive learning, not static rules.</h4>
+            <p>Every interaction feeds back into the system. Approve a draft? The voice model sharpens. Save a client? The risk model recalibrates. Aurora doesn't just run — it learns.</p>
           </div>
         </div>
       </div>
@@ -633,7 +669,7 @@
       <div class="reveal" style="max-width: 600px; margin: 0 auto; position: relative; z-index: 1;">
         <p class="section-label">Early Access</p>
         <h2 class="section-title">Get in before everyone else.</h2>
-        <p class="section-desc section-desc-center">ReForge launches May 19. ClientPulse follows in July. Early access members get 30% off their first year and shape the product roadmap.</p>
+        <p class="section-desc section-desc-center">ReForge launches May 19. ClientPulse follows in June. Early access members get 30% off their first year and shape the product roadmap.</p>
 
         <form class="hero-form" id="bottom-form" onsubmit="submitForm(event, 'bottom-success')">
           <input type="email" placeholder="you@agency.com" required>
@@ -690,7 +726,7 @@
 
     // Waitlist form — Supabase
     const SUPABASE_URL = 'https://couuozshvmspfvkfjhzs.supabase.co';
-    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNvdXVvenNodm1zcGZ2a2ZqaHpzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM4Njk0NDksImV4cCI6MjA1OTQ0NTQ0OX0.oj37S9bXYAM9l3JKMDwJQsEJlscvQEDRX0F7yjJONdM';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNvdXVvenNodm1zcGZ2a2ZqaHpzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0OTY0MDYsImV4cCI6MjA5MTA3MjQwNn0.oPB-K3l1LFCPxYdU_2bwQhTJP7ENXjDx6Jq8jCHTVZw';
 
     async function submitForm(e, successId) {
       e.preventDefault();
