@@ -73,7 +73,7 @@
 
   <div class="legal-container">
     <h1>Privacy Policy</h1>
-    <p class="subtitle">Datenschutzerklärung — Last updated: April 7, 2026</p>
+    <p class="subtitle">Datenschutzerklärung — Last updated: April 14, 2026</p>
 
     <h2>1. Controller / Verantwortlicher</h2>
     <div class="info-card">
@@ -164,7 +164,7 @@
           <td><strong>Stripe Inc.</strong></td>
           <td>Payment processing, subscriptions, invoicing</td>
           <td>US</td>
-          <td><span class="product-tag tag-veritasx">VeritasX</span> <span class="product-tag tag-reforge">ReForge</span></td>
+          <td><span class="product-tag tag-veritasx">VeritasX</span> <span class="product-tag tag-reforge">ReForge</span> <span class="product-tag tag-clientpulse">ClientPulse</span></td>
         </tr>
         <tr>
           <td><strong>xAI Corp.</strong></td>
@@ -174,9 +174,21 @@
         </tr>
         <tr>
           <td><strong>OpenAI Inc.</strong></td>
-          <td>Text embeddings (text-embedding-3-small)</td>
+          <td>Text embeddings (text-embedding-3-small); audio transcription via Whisper (ClientPulse meeting recordings uploaded for transcription)</td>
           <td>US</td>
-          <td><span class="product-tag tag-reforge">ReForge</span></td>
+          <td><span class="product-tag tag-reforge">ReForge</span> <span class="product-tag tag-clientpulse">ClientPulse</span></td>
+        </tr>
+        <tr>
+          <td><strong>Google LLC</strong></td>
+          <td>Google OAuth 2.0 authentication; Gmail API (read/analyze inbound &amp; outbound client communications where the user grants read access); Google Calendar API (read/sync events for meeting intelligence and client context). Only metadata and user-authorized mailboxes/calendars are accessed; scopes are minimised and revocable at any time.</td>
+          <td>US (DPF-certified)</td>
+          <td><span class="product-tag tag-clientpulse">ClientPulse</span></td>
+        </tr>
+        <tr>
+          <td><strong>Zoom Video Communications, Inc.</strong></td>
+          <td>Zoom OAuth 2.0 authentication; Recordings &amp; Transcripts APIs (retrieve cloud recordings and meeting metadata for Meeting Intelligence). Access is limited to meetings the authenticated user participates in and can be revoked at any time.</td>
+          <td>US (DPF-certified)</td>
+          <td><span class="product-tag tag-clientpulse">ClientPulse</span></td>
         </tr>
         <tr>
           <td><strong>X Corp. (Twitter)</strong></td>
@@ -210,7 +222,7 @@
     <h2>5. International Data Transfers</h2>
     <p>The majority of our data processors are based in the United States. We ensure lawful data transfers through the following mechanisms:</p>
     <ul>
-      <li><strong>EU-US Data Privacy Framework (DPF):</strong> For processors certified under the DPF (Stripe, Cloudflare, Vercel, GitHub, OpenAI, Anthropic, Resend).</li>
+      <li><strong>EU-US Data Privacy Framework (DPF):</strong> For processors certified under the DPF (Stripe, Cloudflare, Vercel, GitHub, OpenAI, Anthropic, Resend, Google, Zoom).</li>
       <li><strong>Standard Contractual Clauses (SCCs):</strong> For non-DPF US-incorporated processors and as a backup safeguard, we rely on the European Commission's Standard Contractual Clauses pursuant to Art. 46(2)(c) GDPR.</li>
       <li><strong>Supplementary measures:</strong> Encryption in transit (TLS 1.3), encryption at rest (AES-256), row-level security policies enforced at the database layer, and data residency in EU regions where supported (Supabase eu-central-1 for all products except AgentForge; Resend eu-west-1; Vercel fra1 for all products except AgentForge).</li>
     </ul>
@@ -222,6 +234,18 @@
       <li>Your submitted content is processed in real time and not permanently stored by the AI provider.</li>
       <li>AI-generated results (rewrites, scores, analysis) are stored in our Supabase database and linked to your account.</li>
       <li>Voice Fingerprint profiles are derived solely from your stored analyses and do not include any biometric data.</li>
+    </ul>
+
+    <h2>6a. ClientPulse-Specific Processing</h2>
+    <p>ClientPulse is an AI Client Health Intelligence product for agencies. When you connect ClientPulse to third-party systems (Gmail, Google Calendar, Zoom, Stripe, Slack), we process the following data categories for the purposes listed. Each integration is user-authorized via OAuth 2.0 and can be revoked at any time from the in-app Integrations settings; revocation triggers deletion of stored tokens and associated derivative data within 30 days.</p>
+    <ul>
+      <li><strong>Email content and metadata (Gmail, user-authorized mailboxes):</strong> Subject lines, sender/recipient, timestamps, and message bodies are analysed to produce client-health signals (response latency, sentiment shifts, escalation risk). Raw email bodies are stored only when required for downstream agent processing and are purged after 180 days or on integration revocation, whichever is sooner.</li>
+      <li><strong>Calendar events (Google Calendar, user-authorized calendars):</strong> Event titles, participants, start/end times, and descriptions are used to build client-meeting cadence and upcoming-engagement context. Full event bodies are not retained beyond the rolling 90-day context window.</li>
+      <li><strong>Meeting recordings and transcripts (Zoom cloud recordings):</strong> Audio files retrieved from Zoom are transcribed using OpenAI Whisper and analysed by Anthropic Claude for sentiment, talk-time ratios, commitment/action-item extraction, and client-health signals. Transcripts are retained for 365 days for product functionality (trend analysis, learning loops); raw audio files are discarded immediately after transcription. Users may delete any individual meeting record on demand.</li>
+      <li><strong>Payment/subscription data (Stripe Connect, optional):</strong> Invoice status, MRR, payment-failure events, and subscription lifecycle events are ingested to produce financial-health signals (late payments, downgrade risk, expansion signals). No card or bank-account numbers are retrieved or stored.</li>
+      <li><strong>Workspace messages (Slack, optional, channels the user explicitly connects):</strong> Channel messages relevant to client work are ingested for context and health scoring. Direct messages are never ingested.</li>
+      <li><strong>Derived outputs:</strong> ClientPulse produces health scores, risk predictions, suggested actions, recursive-learning snapshots, and Monday Brief summaries. These derivatives are stored in our Supabase EU (Frankfurt) database, linked to your agency workspace, and subject to the same access controls (RLS) as your other data.</li>
+      <li><strong>Human review of AI outputs:</strong> All ClientPulse AI outputs are informational or suggestive; they do not execute binding actions on third-party systems without explicit user approval. Users can review, correct, or reject any AI-generated suggestion. This supports your Art. 22 GDPR right not to be subject to solely automated decision-making.</li>
     </ul>
 
     <h2>7. Your Rights Under GDPR</h2>
@@ -245,6 +269,11 @@
       <li><strong>Payment records:</strong> Retained for 10 years as required by German tax law (§ 147 AO, § 257 HGB).</li>
       <li><strong>Server logs:</strong> Automatically purged after 90 days.</li>
       <li><strong>X OAuth tokens:</strong> Deleted immediately when you disconnect your X account or delete your Aurora account.</li>
+      <li><strong>ClientPulse OAuth tokens (Gmail, Google Calendar, Zoom, Stripe, Slack):</strong> Deleted within 30 days when you disconnect the integration or delete your Aurora account. Revocation is also propagated to the provider via their OAuth revocation endpoint where supported.</li>
+      <li><strong>ClientPulse meeting transcripts:</strong> Retained for 365 days from creation, then automatically purged. Users may delete individual transcripts on demand.</li>
+      <li><strong>ClientPulse email content (raw bodies):</strong> Retained for 180 days from ingestion, then automatically purged. Derived signals (health scores, sentiment deltas) are retained for the duration of the workspace account.</li>
+      <li><strong>ClientPulse calendar events (full bodies):</strong> Rolling 90-day context window, then purged. Event metadata used for trend analysis is retained for the duration of the workspace account.</li>
+      <li><strong>ClientPulse raw audio from Zoom recordings:</strong> Discarded immediately after transcription; never persisted.</li>
     </ul>
 
     <h2>9. Data Security</h2>
