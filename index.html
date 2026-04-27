@@ -15,6 +15,11 @@
   <meta name="twitter:title" content="Aurora — Win clients. Keep clients.">
   <meta name="twitter:description" content="AI intelligence tools for agencies. Content that wins new business. Intelligence that keeps existing clients.">
   <link rel="stylesheet" href="fonts/fonts.css">
+  <!-- Display + body + mono fonts via bunny.net (GDPR-compliant EU CDN, no Google tracking).
+       Existing self-hosted Outfit/Playfair stay loaded as a fallback during the typography
+       transition; can be removed in a follow-up cleanup once we self-host these too. -->
+  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+  <link rel="stylesheet" href="https://fonts.bunny.net/css?family=space-grotesk:400,500,600,700|inter:300,400,500,600|jetbrains-mono:400,500&display=swap">
   <style>
     :root {
       --aurora-gradient: linear-gradient(135deg, #38e8c8, #4cc9f0, #7b8ff0, #b388eb, #e87fa5);
@@ -30,8 +35,11 @@
       --accent-tertiary: #38e8c8;
       --reforge-accent: #f0c84c;
       --clientpulse-accent: #38e8c8;
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body: 'Outfit', system-ui, sans-serif;
+      --hairline: rgba(255, 255, 255, 0.08);
+      --hairline-strong: rgba(255, 255, 255, 0.12);
+      --font-display: 'Space Grotesk', 'Outfit', system-ui, sans-serif;
+      --font-body: 'Inter', 'Outfit', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -123,6 +131,46 @@
     @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
     .product-link { display: inline-block; margin-left: 1.2rem; font-size: 0.85rem; text-decoration: none; font-weight: 600; transition: opacity 0.25s; }
     .product-link:hover { opacity: 0.75; }
+
+    /* ── Workflow Rail (canonical 5-step) ── */
+    #workflow { background: var(--bg-deep); position: relative; overflow: hidden; }
+    #workflow::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 1100px; height: 1100px; background: radial-gradient(ellipse, rgba(76,201,240,0.04) 0%, transparent 60%); pointer-events: none; }
+    .wf-rail { position: relative; margin-top: 4rem; }
+    .wf-rail-header { text-align: center; margin-bottom: 4rem; }
+    .wf-rail-header .section-label { color: var(--accent-tertiary); margin-bottom: 1.2rem; }
+    .wf-rail-header .section-title { max-width: 720px; margin: 0 auto 1rem; }
+    .wf-rail-header .section-desc { margin: 0 auto; text-align: center; }
+    .wf-rail-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; position: relative; z-index: 1; padding: 0 1rem; }
+    /* Connecting hairline behind the nodes — full width, low opacity, with a moving pulse. */
+    .wf-rail-line { position: absolute; top: 38px; left: 6%; right: 6%; height: 1px; background: linear-gradient(90deg, transparent 0%, var(--hairline-strong) 8%, var(--hairline-strong) 92%, transparent 100%); z-index: 0; }
+    .wf-rail-pulse { position: absolute; top: 0; left: -10%; height: 100%; width: 22%; background: linear-gradient(90deg, transparent 0%, rgba(76,201,240,0.55) 50%, transparent 100%); animation: wf-pulse 6s ease-in-out infinite; }
+    @keyframes wf-pulse { 0% { transform: translateX(0%); opacity: 0.85; } 70% { opacity: 0.85; } 100% { transform: translateX(550%); opacity: 0; } }
+    .wf-node { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.85rem; padding: 0 0.5rem; }
+    .wf-node-disc { width: 76px; height: 76px; border-radius: 50%; background: var(--bg-polar); border: 1px solid var(--hairline-strong); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.9rem; font-weight: 500; color: var(--text-muted); letter-spacing: 0.5px; transition: border-color 0.4s, color 0.4s, transform 0.4s; position: relative; }
+    .wf-node-disc::before { content: ''; position: absolute; inset: -1px; border-radius: 50%; background: var(--aurora-gradient); opacity: 0; transition: opacity 0.4s; z-index: -1; }
+    .wf-node:hover .wf-node-disc { color: var(--text-primary); transform: translateY(-2px); border-color: transparent; }
+    .wf-node:hover .wf-node-disc::before { opacity: 1; }
+    .wf-node-name { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; letter-spacing: -0.2px; color: var(--text-primary); }
+    .wf-node-cue { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 400; color: var(--accent-tertiary); text-transform: lowercase; letter-spacing: 0.3px; opacity: 0.75; }
+    .wf-node-desc { font-family: var(--font-body); font-size: 0.82rem; color: var(--text-muted); font-weight: 300; line-height: 1.55; max-width: 180px; }
+    /* Per-product translation strip below the rail */
+    .wf-translation { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 5rem; }
+    .wf-translation-card { background: var(--bg-polar); border: 1px solid var(--hairline); border-radius: 16px; padding: 2rem; }
+    .wf-translation-card.rf { border-top: 2px solid var(--reforge-accent); }
+    .wf-translation-card.cp { border-top: 2px solid var(--clientpulse-accent); }
+    .wf-translation-card h4 { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.6rem; }
+    .wf-translation-card.rf h4 { color: var(--reforge-accent); }
+    .wf-translation-card.cp h4 { color: var(--clientpulse-accent); }
+    .wf-translation-card .wf-tagline { font-size: 0.85rem; color: var(--text-muted); font-weight: 300; margin-bottom: 1.4rem; }
+    .wf-translation-list { list-style: none; display: grid; grid-template-columns: max-content 1fr; gap: 0.6rem 1rem; font-size: 0.88rem; }
+    .wf-translation-list dt { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; padding-top: 0.1rem; }
+    .wf-translation-list dd { color: var(--text-primary); font-weight: 400; line-height: 1.5; }
+    @media (max-width: 900px) {
+      .wf-rail-grid { grid-template-columns: 1fr; gap: 2rem; padding: 0; }
+      .wf-rail-line { display: none; }
+      .wf-translation { grid-template-columns: 1fr; }
+      .wf-node-desc { max-width: 280px; }
+    }
 
     /* ── Workflow Steps ── */
     .workflow-steps { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 1.5rem; }
@@ -289,9 +337,9 @@
         <span></span><span></span><span></span>
       </button>
       <div class="nav-links">
+        <a href="#workflow">Workflow</a>
         <a href="#products">Products</a>
         <a href="#pricing">Pricing</a>
-        <a href="#story">Our Story</a>
         <a href="#faq">FAQ</a>
         <a href="#waitlist" class="nav-cta">Get Started</a>
       </div>
@@ -303,7 +351,7 @@
     <div class="hero-content">
       <p class="hero-eyebrow">AI Intelligence for Agencies</p>
       <h1><span class="gradient-text">Win clients.</span> Keep clients.</h1>
-      <p class="hero-sub-head">Aurora is the AI-powered operating system for agencies. Two products, one mission: help you deliver better content and never lose a client you could have saved.</p>
+      <p class="hero-sub-head">One workflow, two products. <strong style="color: var(--text-primary); font-weight: 500;">Connect &middot; Discover &middot; Decide &middot; Act &middot; Learn</strong> &mdash; across content (ReForge) and clients (ClientPulse). The loop closes, and gets sharper every time you use it.</p>
 
       <form class="hero-form" id="hero-form" onsubmit="submitForm(event, 'hero-success')">
         <input type="email" placeholder="you@agency.com" required>
@@ -329,6 +377,86 @@
       <p class="impact-label">earlier ClientPulse predicts churn vs. gut instinct</p>
     </div>
   </div>
+
+  <!-- WORKFLOW (canonical 5-step rail) -->
+  <section id="workflow">
+    <div class="section-inner">
+      <div class="wf-rail-header reveal">
+        <p class="section-label">The workflow</p>
+        <h2 class="section-title">One workflow. <span class="gradient-text">Two products.</span></h2>
+        <p class="section-desc section-desc-center">Same five steps across content and clients. Bring your tools in once, see where you stand, get the next move ranked, ship it, and let every outcome sharpen the next decision.</p>
+      </div>
+
+      <div class="wf-rail">
+        <div class="wf-rail-line" aria-hidden="true">
+          <div class="wf-rail-pulse"></div>
+        </div>
+        <div class="wf-rail-grid">
+          <div class="wf-node reveal">
+            <div class="wf-node-disc">01</div>
+            <div class="wf-node-name">Connect</div>
+            <div class="wf-node-cue">wire it up</div>
+            <div class="wf-node-desc">Bring your tools, voices, and clients in once.</div>
+          </div>
+          <div class="wf-node reveal">
+            <div class="wf-node-disc">02</div>
+            <div class="wf-node-name">Discover</div>
+            <div class="wf-node-cue">look around</div>
+            <div class="wf-node-desc">See where you stand &mdash; what's working, what's quiet, what's at risk.</div>
+          </div>
+          <div class="wf-node reveal">
+            <div class="wf-node-disc">03</div>
+            <div class="wf-node-name">Decide</div>
+            <div class="wf-node-cue">pick the play</div>
+            <div class="wf-node-desc">Get the next-best move ranked, with the why behind it.</div>
+          </div>
+          <div class="wf-node reveal">
+            <div class="wf-node-disc">04</div>
+            <div class="wf-node-name">Act</div>
+            <div class="wf-node-cue">execute</div>
+            <div class="wf-node-desc">Ship it &mdash; content, proposals, check-ins &mdash; without leaving the suite.</div>
+          </div>
+          <div class="wf-node reveal">
+            <div class="wf-node-disc">05</div>
+            <div class="wf-node-name">Learn</div>
+            <div class="wf-node-cue">compound</div>
+            <div class="wf-node-desc">Every outcome trains the next decision. The more you use it, the sharper it gets.</div>
+          </div>
+        </div>
+
+        <div class="wf-translation reveal">
+          <div class="wf-translation-card rf">
+            <h4>
+              <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><line x1="8" y1="36" x2="24" y2="36" stroke="#f0c84c" stroke-width="2.5" stroke-linecap="round"/><polyline points="20,32 24,36 20,40" stroke="#f0c84c" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 36 L36 22 L44 36 L36 50 Z" fill="none" stroke="#f0c84c" stroke-width="2.5" stroke-linejoin="round"/><path d="M32 36 L36 28 L40 36 L36 44 Z" fill="#f0c84c" opacity="0.15"/><line x1="44" y1="28" x2="62" y2="16" stroke="#f0c84c" stroke-width="2" stroke-linecap="round"/><line x1="44" y1="36" x2="64" y2="36" stroke="#f0c84c" stroke-width="2.5" stroke-linecap="round"/><line x1="44" y1="44" x2="62" y2="56" stroke="#f0c84c" stroke-width="2" stroke-linecap="round"/><circle cx="64" cy="36" r="2.5" fill="#f0c84c"/></svg>
+              ReForge &mdash; for content
+            </h4>
+            <p class="wf-tagline">Turn one piece into 50+ in your client's voice.</p>
+            <dl class="wf-translation-list">
+              <dt>01 Connect</dt><dd>Voice profiles, integrations, clients</dd>
+              <dt>02 Discover</dt><dd>Content map, uploads, history</dd>
+              <dt>03 Decide</dt><dd>Review queue &mdash; what ships, what needs work</dd>
+              <dt>04 Act</dt><dd>Calendar, multichannel publish, engage</dd>
+              <dt>05 Learn</dt><dd>Recursive voice + cadence learning</dd>
+            </dl>
+          </div>
+          <div class="wf-translation-card cp">
+            <h4>
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><rect width="40" height="40" rx="10" fill="url(#cpGradWf)"/><polyline points="7,20 13,20 16,12 20,28 24,12 27,20 33,20" stroke="#06090f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><defs><linearGradient id="cpGradWf" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#38e8c8"/><stop offset="100%" stop-color="#4cc9f0"/></linearGradient></defs></svg>
+              ClientPulse &mdash; for clients
+            </h4>
+            <p class="wf-tagline">Predict churn 60 days early, save the save-able.</p>
+            <dl class="wf-translation-list">
+              <dt>01 Connect</dt><dd>Stripe, calendar, email, transcripts</dd>
+              <dt>02 Discover</dt><dd>Clients overview &mdash; health, signals, risk</dd>
+              <dt>03 Decide</dt><dd>Monday Brief &mdash; ranked re-engage / upsell / save plays</dd>
+              <dt>04 Act</dt><dd>Proposals, check-ins, follow-ups</dd>
+              <dt>05 Learn</dt><dd>Outcome feedback sharpens future Briefs</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- DAY 1 VALUE -->
   <section id="day1">
