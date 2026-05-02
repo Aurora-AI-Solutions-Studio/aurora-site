@@ -58,7 +58,7 @@
     .nav-links { display: flex; gap: 2rem; align-items: center; }
     .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 400; transition: color 0.25s; }
     .nav-links a:hover { color: var(--text-primary); }
-    .nav-cta { padding: 0.55rem 1.4rem !important; background: var(--aurora-gradient) !important; -webkit-text-fill-color: var(--bg-deep) !important; color: var(--bg-deep) !important; border-radius: 10px; font-weight: 600 !important; font-size: 0.85rem !important; transition: opacity 0.25s !important; }
+    .nav-cta { padding: 14px 32px !important; background: var(--aurora-gradient) !important; -webkit-text-fill-color: var(--bg-deep) !important; color: var(--bg-deep) !important; border-radius: 10px; font-weight: 600 !important; font-size: 0.95rem !important; transition: opacity 0.25s !important; }
     .nav-cta:hover { opacity: 0.88; }
     nav::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px; background: var(--aurora-gradient-h); opacity: 0.5; }
 
@@ -76,10 +76,10 @@
     .hero-form input[type="email"] { flex: 1; padding: 0.85rem 1.2rem; background: var(--bg-surface); border: 1px solid rgba(76, 201, 240, 0.15); border-radius: 10px; color: var(--text-primary); font-family: var(--font-body); font-size: 0.95rem; outline: none; transition: border-color 0.25s; }
     .hero-form input[type="email"]:focus { border-color: var(--accent-primary); }
     .hero-form input[type="email"]::placeholder { color: var(--text-muted); opacity: 0.6; }
-    .hero-form button { padding: 0.85rem 1.8rem; background: var(--aurora-gradient); color: var(--bg-deep); border: none; border-radius: 10px; font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: opacity 0.25s, transform 0.2s; white-space: nowrap; }
+    .hero-form button { padding: 14px 32px; background: var(--aurora-gradient); color: var(--bg-deep); border: none; border-radius: 10px; font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: opacity 0.25s, transform 0.2s; white-space: nowrap; }
     .hero-form button:hover { opacity: 0.88; transform: translateY(-1px); }
     .hero-actions { display: flex; gap: 0.75rem; justify-content: center; max-width: 520px; margin: 0 auto; flex-wrap: wrap; }
-    .hero-btn-primary, .hero-btn-secondary { padding: 0.85rem 1.8rem; border-radius: 10px; font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: opacity 0.25s, transform 0.2s; white-space: nowrap; display: inline-block; }
+    .hero-btn-primary, .hero-btn-secondary { padding: 14px 32px; border-radius: 10px; font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: opacity 0.25s, transform 0.2s; white-space: nowrap; display: inline-block; }
     .hero-btn-primary { background: var(--aurora-gradient); color: var(--bg-deep) !important; }
     .hero-btn-secondary { background: rgba(76, 201, 240, 0.08); color: var(--accent-primary); border: 1px solid rgba(76, 201, 240, 0.2); }
     .hero-btn-primary:hover, .hero-btn-secondary:hover { opacity: 0.88; transform: translateY(-1px); }
@@ -261,7 +261,7 @@
     .price-features li.included::before { background: var(--accent-tertiary); }
     .price-features li.excluded { opacity: 0.4; }
     .price-features li.excluded::before { background: var(--text-muted); }
-    .price-cta { display: block; width: 100%; margin-top: 1.2rem; padding: 0.85rem 2rem; border: none; border-radius: 10px; font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; cursor: pointer; text-align: center; text-decoration: none; transition: opacity 0.25s, transform 0.2s; }
+    .price-cta { display: block; width: 100%; margin-top: 1.2rem; padding: 14px 32px; border: none; border-radius: 10px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; cursor: pointer; text-align: center; text-decoration: none; transition: opacity 0.25s, transform 0.2s; }
     .price-cta:hover { opacity: 0.85; transform: translateY(-1px); }
     .price-cta.primary { background: var(--aurora-gradient); color: var(--bg-deep); }
     .price-cta.secondary { background: rgba(76, 201, 240, 0.1); color: var(--accent-primary); border: 1px solid rgba(76, 201, 240, 0.2); }
@@ -336,6 +336,19 @@
       .bundle-card .bundle-price { font-size: 2.2rem; }
       .product-features-compact { grid-template-columns: 1fr; }
     }
+    /* ── Hero Mockup ── */
+    .hero-mockup-wrapper { position: relative; max-width: 960px; margin: 4rem auto 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(76, 201, 240, 0.2); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 40px rgba(76, 201, 240, 0.1); background: var(--bg-deep); animation: fadeUp 1s ease forwards 0.8s; opacity: 0; }
+    .hero-mockup-chrome { display: flex; align-items: center; padding: 0.75rem 1rem; background: #0a0f1a; border-bottom: 1px solid rgba(76, 201, 240, 0.1); gap: 0.5rem; }
+    .hm-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .hm-dot.red { background: #e74c3c; }
+    .hm-dot.yellow { background: #f0c84c; }
+    .hm-dot.green { background: #38e8c8; }
+    .hero-mockup-body { display: flex; aspect-ratio: 16/9; background: var(--bg-polar); position: relative; overflow: hidden; text-align: left; }
+    .hm-sidebar { width: 220px; border-right: 1px solid var(--hairline-strong); background: #0a0f1a; padding: 1rem; display: flex; flex-direction: column; gap: 1rem; }
+    .hm-main { flex: 1; padding: 2rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .hm-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .hm-card { background: var(--bg-surface); border: 1px solid var(--hairline); border-radius: 8px; height: 100px; display: flex; flex-direction: column; justify-content: center; padding: 1.25rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .hm-content { flex: 1; background: var(--bg-surface); border: 1px solid var(--hairline); border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
   </style>
 </head>
 <body>
@@ -373,6 +386,65 @@
         <a href="#pricing" class="hero-btn-secondary">See pricing</a>
       </div>
       <p class="hero-fine">From $49/mo &middot; Solo+ $99 unlocks recursive voice learning &middot; 30% off Agency + Suite first year for the first 20 customers per tier &middot; <a href="/privacy" style="color: var(--accent-primary); text-decoration: underline;">Privacy</a></p>
+
+      <div class="hero-mockup-wrapper reveal">
+        <div class="hero-mockup-chrome">
+          <div class="hm-dot red"></div>
+          <div class="hm-dot yellow"></div>
+          <div class="hm-dot green"></div>
+        </div>
+        <div class="hero-mockup-body">
+          <div class="hm-sidebar">
+            <div style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; letter-spacing: -0.5px;">Aurora</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Workspaces</div>
+            <div style="padding: 0.6rem 0.75rem; background: rgba(76, 201, 240, 0.1); color: var(--accent-primary); border-radius: 6px; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem;">Agency Suite</div>
+            <div style="padding: 0.6rem 0.75rem; color: var(--text-muted); font-size: 0.85rem; font-weight: 500;">ClientPulse</div>
+            <div style="padding: 0.6rem 0.75rem; color: var(--text-muted); font-size: 0.85rem; font-weight: 500;">ReForge</div>
+          </div>
+          <div class="hm-main">
+            <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 600; color: var(--text-primary); letter-spacing: -0.5px;">Agency Overview</div>
+            <div class="hm-cards">
+              <div class="hm-card">
+                <div style="color: var(--text-muted); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.05em;">Active Clients</div>
+                <div style="font-family: var(--font-display); font-size: 2.2rem; color: var(--text-primary); font-weight: 600; line-height: 1;">24</div>
+              </div>
+              <div class="hm-card" style="border-color: rgba(56, 232, 200, 0.4); background: rgba(56, 232, 200, 0.05);">
+                <div style="color: var(--clientpulse-accent); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.05em;">At Risk (ClientPulse)</div>
+                <div style="font-family: var(--font-display); font-size: 2.2rem; color: var(--text-primary); font-weight: 600; line-height: 1;">2</div>
+              </div>
+              <div class="hm-card" style="border-color: rgba(240, 200, 76, 0.25); background: rgba(240, 200, 76, 0.03);">
+                <div style="color: var(--reforge-accent); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.05em;">Content Velocity (ReForge)</div>
+                <div style="font-family: var(--font-display); font-size: 2.2rem; color: var(--text-primary); font-weight: 600; line-height: 1;">+42%</div>
+              </div>
+            </div>
+            <div class="hm-content" style="padding: 1.5rem;">
+              <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 1.2rem; border-bottom: 1px solid var(--hairline); padding-bottom: 0.75rem; color: var(--text-primary);">Recent Activity</div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 0; border-bottom: 1px solid var(--hairline); font-size: 0.9rem;">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <div style="width: 8px; height: 8px; border-radius: 50%; background: var(--reforge-accent);"></div>
+                  <span style="color: var(--text-primary); font-weight: 500;">Acme Corp &mdash; Content Batch Approved</span>
+                </div>
+                <span style="color: var(--reforge-accent); font-size: 0.8rem; font-weight: 500; padding: 0.25rem 0.5rem; background: rgba(240,200,76,0.1); border-radius: 4px;">Voice learning updated</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 0; border-bottom: 1px solid var(--hairline); font-size: 0.9rem;">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <div style="width: 8px; height: 8px; border-radius: 50%; background: var(--clientpulse-accent);"></div>
+                  <span style="color: var(--text-primary); font-weight: 500;">GlobalTech &mdash; Engagement Drop Detected</span>
+                </div>
+                <span style="color: var(--clientpulse-accent); font-size: 0.8rem; font-weight: 500; padding: 0.25rem 0.5rem; background: rgba(56,232,200,0.1); border-radius: 4px;">Play recommended</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 0; font-size: 0.9rem;">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <div style="width: 8px; height: 8px; border-radius: 50%; background: var(--text-muted);"></div>
+                  <span style="color: var(--text-primary); font-weight: 500;">DesignCo &mdash; QBR Scheduled</span>
+                </div>
+                <span style="color: var(--text-muted); font-size: 0.8rem; font-weight: 500; padding: 0.25rem 0.5rem; background: rgba(255,255,255,0.05); border-radius: 4px;">Sync complete</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -408,31 +480,31 @@
         <div class="wf-rail-grid">
           <div class="wf-node reveal">
             <div class="wf-node-disc">01</div>
-            <div class="wf-node-name">Connect</div>
+            <div class="wf-node-name">Synchronize</div>
             <div class="wf-node-cue">wire it up</div>
             <div class="wf-node-desc">Bring your tools, voices, and clients in once.</div>
           </div>
           <div class="wf-node reveal">
             <div class="wf-node-disc">02</div>
-            <div class="wf-node-name">Discover</div>
+            <div class="wf-node-name">Analyze</div>
             <div class="wf-node-cue">look around</div>
             <div class="wf-node-desc">See where you stand &mdash; what's working, what's quiet, what's at risk.</div>
           </div>
           <div class="wf-node reveal">
             <div class="wf-node-disc">03</div>
-            <div class="wf-node-name">Decide</div>
+            <div class="wf-node-name">Strategize</div>
             <div class="wf-node-cue">pick the play</div>
             <div class="wf-node-desc">Get the next-best move ranked, with the why behind it.</div>
           </div>
           <div class="wf-node reveal">
             <div class="wf-node-disc">04</div>
-            <div class="wf-node-name">Act</div>
+            <div class="wf-node-name">Execute</div>
             <div class="wf-node-cue">execute</div>
             <div class="wf-node-desc">Ship it &mdash; content, proposals, check-ins &mdash; without leaving the suite.</div>
           </div>
           <div class="wf-node reveal">
             <div class="wf-node-disc">05</div>
-            <div class="wf-node-name">Learn</div>
+            <div class="wf-node-name">Compound</div>
             <div class="wf-node-cue">compound</div>
             <div class="wf-node-desc">Every outcome trains the next decision. The more you use it, the sharper it gets.</div>
           </div>
@@ -446,11 +518,11 @@
             </h4>
             <p class="wf-tagline">Turn one piece into 50+ in your client's voice.</p>
             <dl class="wf-translation-list">
-              <dt>01 Connect</dt><dd>Voice profiles, integrations, clients</dd>
-              <dt>02 Discover</dt><dd>Content map, uploads, history</dd>
-              <dt>03 Decide</dt><dd>Review queue &mdash; what ships, what needs work</dd>
-              <dt>04 Act</dt><dd>Calendar, multichannel publish, engage</dd>
-              <dt>05 Learn</dt><dd>Recursive voice + cadence learning</dd>
+              <dt>01 Synchronize</dt><dd>Voice profiles, integrations, clients</dd>
+              <dt>02 Analyze</dt><dd>Content map, uploads, history</dd>
+              <dt>03 Strategize</dt><dd>Review queue &mdash; what ships, what needs work</dd>
+              <dt>04 Execute</dt><dd>Calendar, multichannel publish, engage</dd>
+              <dt>05 Compound</dt><dd>Recursive voice + cadence learning</dd>
             </dl>
           </div>
           <div class="wf-translation-card cp">
@@ -460,11 +532,11 @@
             </h4>
             <p class="wf-tagline">Predict churn 60 days early, save the save-able.</p>
             <dl class="wf-translation-list">
-              <dt>01 Connect</dt><dd>Stripe, calendar, email, transcripts</dd>
-              <dt>02 Discover</dt><dd>Clients overview &mdash; health, signals, risk</dd>
-              <dt>03 Decide</dt><dd>Monday Brief &mdash; ranked re-engage / upsell / save plays</dd>
-              <dt>04 Act</dt><dd>Proposals, check-ins, follow-ups</dd>
-              <dt>05 Learn</dt><dd>Outcome feedback sharpens future Briefs</dd>
+              <dt>01 Synchronize</dt><dd>Stripe, calendar, email, transcripts</dd>
+              <dt>02 Analyze</dt><dd>Clients overview &mdash; health, signals, risk</dd>
+              <dt>03 Strategize</dt><dd>Monday Brief &mdash; ranked re-engage / upsell / save plays</dd>
+              <dt>04 Execute</dt><dd>Proposals, check-ins, follow-ups</dd>
+              <dt>05 Compound</dt><dd>Outcome feedback sharpens future Briefs</dd>
             </dl>
           </div>
         </div>
@@ -534,11 +606,11 @@
           </div>
 
           <div class="workflow-steps">
-            <div class="wf-step"><span class="wf-num" style="background: rgba(240,200,76,0.15); color: var(--reforge-accent); font-family: var(--font-mono);">1</span><div><strong style="color: var(--reforge-accent);">Connect</strong><p>Wire up voice profiles, integrations, and your client roster. Once.</p></div></div>
-            <div class="wf-step"><span class="wf-num" style="background: rgba(240,200,76,0.15); color: var(--reforge-accent); font-family: var(--font-mono);">2</span><div><strong style="color: var(--reforge-accent);">Discover</strong><p>Drop in a podcast, video, or blog. ReForge mines 15+ segments from every source.</p></div></div>
-            <div class="wf-step"><span class="wf-num" style="background: rgba(240,200,76,0.15); color: var(--reforge-accent); font-family: var(--font-mono);">3</span><div><strong style="color: var(--reforge-accent);">Decide</strong><p>Review queue ranks 50+ generated pieces by quality &mdash; ship, edit, or reject.</p></div></div>
-            <div class="wf-step"><span class="wf-num" style="background: rgba(240,200,76,0.15); color: var(--reforge-accent); font-family: var(--font-mono);">4</span><div><strong style="color: var(--reforge-accent);">Act</strong><p>Publish across 19 platforms from the calendar. Engage measures reactions, comments, top engagers &mdash; direct API where available, email-bridge fallback for LinkedIn.</p></div></div>
-            <div class="wf-step"><span class="wf-num" style="background: rgba(240,200,76,0.15); color: var(--reforge-accent); font-family: var(--font-mono);">5</span><div><strong style="color: var(--reforge-accent);">Learn</strong><p>Approval/rejection events plus post-publish engagement feed back into the voice profile. First-draft approval rates climb 40% &rarr; 80%+ over 90 days, per client.</p></div></div>
+            <div class="wf-step"><span class="wf-num" style="background: rgba(240,200,76,0.15); color: var(--reforge-accent); font-family: var(--font-mono);">1</span><div><strong style="color: var(--reforge-accent);">Synchronize</strong><p>Wire up voice profiles, integrations, and your client roster. Once.</p></div></div>
+            <div class="wf-step"><span class="wf-num" style="background: rgba(240,200,76,0.15); color: var(--reforge-accent); font-family: var(--font-mono);">2</span><div><strong style="color: var(--reforge-accent);">Analyze</strong><p>Drop in a podcast, video, or blog. ReForge mines 15+ segments from every source.</p></div></div>
+            <div class="wf-step"><span class="wf-num" style="background: rgba(240,200,76,0.15); color: var(--reforge-accent); font-family: var(--font-mono);">3</span><div><strong style="color: var(--reforge-accent);">Strategize</strong><p>Review queue ranks 50+ generated pieces by quality &mdash; ship, edit, or reject.</p></div></div>
+            <div class="wf-step"><span class="wf-num" style="background: rgba(240,200,76,0.15); color: var(--reforge-accent); font-family: var(--font-mono);">4</span><div><strong style="color: var(--reforge-accent);">Execute</strong><p>Publish across 19 platforms from the calendar. Engage measures reactions, comments, top engagers &mdash; direct API where available, email-bridge fallback for LinkedIn.</p></div></div>
+            <div class="wf-step"><span class="wf-num" style="background: rgba(240,200,76,0.15); color: var(--reforge-accent); font-family: var(--font-mono);">5</span><div><strong style="color: var(--reforge-accent);">Compound</strong><p>Approval/rejection events plus post-publish engagement feed back into the voice profile. First-draft approval rates climb 40% &rarr; 80%+ over 90 days, per client.</p></div></div>
           </div>
           <div style="display: flex; align-items: center; gap: 0.5rem;">
             <div class="product-status" style="color: var(--reforge-accent);"><span class="status-dot" style="background: var(--reforge-accent);"></span> Private launch · Summer 2026</div>
@@ -560,11 +632,11 @@
           </div>
 
           <div class="workflow-steps">
-            <div class="wf-step"><span class="wf-num" style="background: rgba(56,232,200,0.15); color: var(--clientpulse-accent); font-family: var(--font-mono);">1</span><div><strong style="color: var(--clientpulse-accent);">Connect</strong><p>Plug in Stripe and you're live. Add Google Calendar, Gmail, and Zoom to sharpen the signal.</p></div></div>
-            <div class="wf-step"><span class="wf-num" style="background: rgba(56,232,200,0.15); color: var(--clientpulse-accent); font-family: var(--font-mono);">2</span><div><strong style="color: var(--clientpulse-accent);">Discover</strong><p>Every client gets a Health Score (0-100) across financial, sentiment, and engagement signals.</p></div></div>
-            <div class="wf-step"><span class="wf-num" style="background: rgba(56,232,200,0.15); color: var(--clientpulse-accent); font-family: var(--font-mono);">3</span><div><strong style="color: var(--clientpulse-accent);">Decide</strong><p>Monday Brief ranks the week's plays &mdash; re-engage, upsell, save &mdash; with the why behind each one.</p></div></div>
-            <div class="wf-step"><span class="wf-num" style="background: rgba(56,232,200,0.15); color: var(--clientpulse-accent); font-family: var(--font-mono);">4</span><div><strong style="color: var(--clientpulse-accent);">Act</strong><p>ClientPulse drafts the check-in email, suggests the QBR, and surfaces the upsell opportunity.</p></div></div>
-            <div class="wf-step"><span class="wf-num" style="background: rgba(56,232,200,0.15); color: var(--clientpulse-accent); font-family: var(--font-mono);">5</span><div><strong style="color: var(--clientpulse-accent);">Learn</strong><p>Outcome feedback sharpens future Briefs. Track prediction accuracy and prove your value with data.</p></div></div>
+            <div class="wf-step"><span class="wf-num" style="background: rgba(56,232,200,0.15); color: var(--clientpulse-accent); font-family: var(--font-mono);">1</span><div><strong style="color: var(--clientpulse-accent);">Synchronize</strong><p>Plug in Stripe and you're live. Add Google Calendar, Gmail, and Zoom to sharpen the signal.</p></div></div>
+            <div class="wf-step"><span class="wf-num" style="background: rgba(56,232,200,0.15); color: var(--clientpulse-accent); font-family: var(--font-mono);">2</span><div><strong style="color: var(--clientpulse-accent);">Analyze</strong><p>Every client gets a Health Score (0-100) across financial, sentiment, and engagement signals.</p></div></div>
+            <div class="wf-step"><span class="wf-num" style="background: rgba(56,232,200,0.15); color: var(--clientpulse-accent); font-family: var(--font-mono);">3</span><div><strong style="color: var(--clientpulse-accent);">Strategize</strong><p>Monday Brief ranks the week's plays &mdash; re-engage, upsell, save &mdash; with the why behind each one.</p></div></div>
+            <div class="wf-step"><span class="wf-num" style="background: rgba(56,232,200,0.15); color: var(--clientpulse-accent); font-family: var(--font-mono);">4</span><div><strong style="color: var(--clientpulse-accent);">Execute</strong><p>ClientPulse drafts the check-in email, suggests the QBR, and surfaces the upsell opportunity.</p></div></div>
+            <div class="wf-step"><span class="wf-num" style="background: rgba(56,232,200,0.15); color: var(--clientpulse-accent); font-family: var(--font-mono);">5</span><div><strong style="color: var(--clientpulse-accent);">Compound</strong><p>Outcome feedback sharpens future Briefs. Track prediction accuracy and prove your value with data.</p></div></div>
           </div>
           <div style="display: flex; align-items: center; gap: 0.5rem;">
             <div class="product-status" style="color: var(--clientpulse-accent);"><span class="status-dot" style="background: var(--clientpulse-accent);"></span> Private launch · Summer 2026</div>
