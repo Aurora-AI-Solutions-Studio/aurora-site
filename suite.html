@@ -19,19 +19,19 @@
   <link rel="stylesheet" href="https://fonts.bunny.net/css?family=playfair-display:400,500,600,700|outfit:300,400,500,600,700|jetbrains-mono:400,500&display=swap">
   <style>
     :root {
-      --aurora-gradient: linear-gradient(135deg, #38e8c8, #4cc9f0, #7b8ff0, #b388eb, #e87fa5);
-      --aurora-gradient-h: linear-gradient(90deg, #38e8c8, #4cc9f0, #7b8ff0, #b388eb, #e87fa5);
+      --aurora-gradient: linear-gradient(135deg, #00E5FF, #B026FF, #FF007A);
+      --aurora-gradient-h: linear-gradient(90deg, #00E5FF, #B026FF, #FF007A);
       --bg-deep: #06090f;
       --bg-polar: #0c1220;
       --bg-twilight: #141e33;
       --bg-surface: #1a2540;
       --text-primary: #e8ecf5;
       --text-muted: #7a88a8;
-      --accent-primary: #4cc9f0;
-      --accent-secondary: #b388eb;
-      --accent-tertiary: #38e8c8;
-      --reforge-accent: #f0c84c;
-      --clientpulse-accent: #38e8c8;
+      --accent-primary: #00E5FF;
+      --accent-secondary: #B026FF;
+      --accent-tertiary: #FF007A;
+      --reforge-accent: #B026FF;
+      --clientpulse-accent: #00E5FF;
       --hairline: rgba(255, 255, 255, 0.08);
       --hairline-strong: rgba(255, 255, 255, 0.12);
       --font-display: 'Playfair Display', serif;
@@ -51,7 +51,8 @@
     /* ── Nav ── */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); background: rgba(6, 9, 15, 0.82); border-bottom: 1px solid rgba(76, 201, 240, 0.08); }
     .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; }
-    .nav-brand { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; letter-spacing: 1px; background: var(--aurora-gradient-h); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-decoration: none; }
+    .nav-brand { display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; letter-spacing: 1px; color: #FFFFFF; text-decoration: none; }
+    .nav-brand img { height: 28px; width: 28px; border-radius: 50%; box-shadow: 0 0 8px rgba(0, 229, 255, 0.4); }
     .nav-links { display: flex; gap: 2rem; align-items: center; }
     .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 400; transition: color 0.25s; }
     .nav-links a:hover { color: var(--text-primary); }
@@ -280,7 +281,7 @@
       Try the live demo today; paid signups open after our German company registration completes.
     </div>
     <div class="nav-inner">
-      <a href="/" class="nav-brand">Aurora</a>
+      <a href="/" class="nav-brand"><img src="/favicon.png" alt="Aurora Logo">Aurora</a>
       <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
